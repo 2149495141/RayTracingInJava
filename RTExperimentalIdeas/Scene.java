@@ -252,8 +252,8 @@ public class Scene {
         yuyuko.rotate(30,1);
         yuyuko.translate(-3.5, -0.55, 0);
 
-        Texture shion_texture = new ImageTexture("OBJFile/shion_yorigam/Shion_low_Material_u1_v1_baseColor.png");
-        Mesh3DModel shion = OBJ.loadToMeshModel("OBJFile/shion_yorigam/shion.obj", new Lambertian(shion_texture));
+        Texture shion_texture = new ImageTexture("OBJFile/shion_yorigami/Shion_low_Material_u1_v1_baseColor.png");
+        Mesh3DModel shion = OBJ.loadToMeshModel("OBJFile/shion_yorigami/shion.obj", new Lambertian(shion_texture));
         shion.scale(0.085);
         shion.rotate(220,1);
         shion.rotate(-15, 2);
