@@ -1,5 +1,8 @@
 # Ray-tracing-in-Java
 
+## Gallery
+![Specular](/Gallery/SpecularSphere.png)
+
 ## OBJFile references
 - bunny:https://graphics.stanford.edu/data/3Dscanrep/
 - dragon:https://graphics.stanford.edu/data/3Dscanrep/
