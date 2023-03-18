@@ -17,7 +17,7 @@ public class Render {
     int image_width;
     int image_height;
 
-    int spp = 100000;
+    int spp = 10000;
 
     int depth = 32;
 
@@ -25,8 +25,8 @@ public class Render {
 
     Render(Camera camera){
         this.camera = camera;
-        this.image_width = 1920;
-        this.image_height = 1080;
+        this.image_width = 1280;
+        this.image_height = 720;
     }
 
     Render(Camera camera, int width, int height){
