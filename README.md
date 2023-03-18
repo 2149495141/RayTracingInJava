@@ -2,6 +2,10 @@
 
 ## Gallery
 ![Specular](/Gallery/SpecularSphere.png)
+![NextWeek](/Gallery/NextWeek.png)
+![CornellBox](/Gallery/CornellBox.png)
+![StanfordDragon](/Gallery/Dragon.png)
+![Reimu](/Gallery/Reimu.png)
 
 ## OBJFile references
 - bunny:https://graphics.stanford.edu/data/3Dscanrep/
