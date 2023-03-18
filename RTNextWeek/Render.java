@@ -94,7 +94,7 @@ public class Render {
         Radiance radiance = new Radiance();
         Interval t = new Interval(0.0001, infinity);
         if(!world.hit(r, t, rec))
-            return getBackground(r).multiply(0.1);
+            return getBackground(r);
 
         Color emission = rec.mat.emitted(rec.u, rec.v, rec.p);
         if(!rec.mat.scatter(r, rec, radiance))

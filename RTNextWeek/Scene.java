@@ -297,17 +297,19 @@ public class Scene {
         Material red   = new Lambertian(new Color(.65, .05, .05));
         Material white = new Lambertian(new Color(.73, .73, .73));
         Material green = new Lambertian(new Color(.12, .45, .15));
-        Material light = new DiffuseLight(new Color(15, 15, 15));
+        Material light = new DiffuseLight(new Color(0.747f+0.058f, 0.747f+0.258f, 0.747f).multiply(8)
+                                    .add(new Color(0.740f+0.287f,0.740f+0.160f,0.740f).multiply(15.6f))
+                                    .add(new Color(0.737f+0.642f,0.737f+0.159f,0.737f).multiply(18.4f)));
 
-        world.add(new Quad(new Point(555,0,0), new Vec3(0,555,0), new Vec3(0,0,555), green));
-        world.add(new Quad(new Point(0,0,0), new Vec3(0,555,0), new Vec3(0,0,555), red));
+        world.add(new Quad(new Point(555,0,0), new Vec3(0,555,0), new Vec3(0,0,555), red));
+        world.add(new Quad(new Point(0,0,0), new Vec3(0,555,0), new Vec3(0,0,555), green));
         world.add(new Quad(new Point(343, 554, 332), new Vec3(-130,0,0), new Vec3(0,0,-105), light));
         world.add(new Quad(new Point(0,0,0), new Vec3(555,0,0), new Vec3(0,0,555), white));
         world.add(new Quad(new Point(555,555,555), new Vec3(-555,0,0), new Vec3(0,0,-555), white));
         world.add(new Quad(new Point(0,0,555), new Vec3(555,0,0), new Vec3(0,555,0), white));
 
-        HitTable box1 = box(new Point(0,0,0), new Point(165,330,165), white);
-        box1 = new Rotate(box1, 15, 1);
+        HitTable box1 = box(new Point(0,0,0), new Point(165,330,165), new Metal(new Color(.73, .73, .73),0.01));
+        box1 = new Rotate(box1, 20, 1);
         box1 = new Translate(box1, new Vec3(265,0,295));
         world.add(box1);
 
@@ -404,7 +406,7 @@ public class Scene {
 
         Sphere boundary = new Sphere(new Point(360,150,145), 70, new Dielectric(new Color(1), 1.5));
         world.add(boundary);
-        world.add(new Medium(boundary, 0.03, new Color(0.2, 0.7, 0.9)));
+        world.add(new Medium(boundary, 0.05, new Color(0.2, 0.7, 0.9)));
         boundary = new Sphere(new Point(0,0,0), 5000, new Dielectric(new Color(1), 1.5));
         world.add(new Medium(boundary, .0001, new Color(1,1,1)));
 
@@ -421,7 +423,7 @@ public class Scene {
         }
 
         world.add(new Translate(
-                new BVH(boxes2.objects),//new Rotate(new BVH(boxes2.objects), 15, 1),
+                new Rotate(new BVH(boxes2.objects), 15, 2),
                 new Vec3(-100,270,395)
         ));
 

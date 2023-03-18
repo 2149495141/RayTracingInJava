@@ -26,6 +26,8 @@ public class RTUtil {
         return ThreadLocalRandom.current().nextInt(min, max);
     }
 
+
+
     public static double clamp(double x, double min, double max)
     {
         if(x<min) return min;
