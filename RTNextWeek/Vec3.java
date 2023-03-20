@@ -1,6 +1,6 @@
 package RTNextWeek;
 
-import static RTOneWeekend.RTUtil.random_double;
+import static RTNextWeek.RTUtil.random_double;
 
 public sealed class Vec3 permits Color, Point {
     public double x;
