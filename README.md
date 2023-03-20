@@ -3,7 +3,9 @@
 ## Run
 Tip: Requires Java 17 or later  
 ```sh
-javac -encoding UTF-8 -d out RTRestOfYourLife/Main.java
+$ javac -encoding UTF-8 -d out RTRestOfYourLife/Main.java  
+$ cd out 
+$ java RTRestOfYourLife.Main
 ```
 
 ## Gallery
