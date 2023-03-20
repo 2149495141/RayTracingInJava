@@ -1,5 +1,11 @@
 # Ray-tracing-in-Java
 
+## Run
+Tip: Requires Java 17 or later  
+```sh
+javac -encoding UTF-8 -d out RTRestOfYourLife/Main.java
+```
+
 ## Gallery
 ![Specular](/Gallery/SpecularSphere.png)
 ![NextWeek](/Gallery/NextWeek.png)
