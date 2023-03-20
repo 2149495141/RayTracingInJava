@@ -1,7 +1,8 @@
 # Ray-tracing-in-Java
 
 ## Run
-Tip: Requires Java 17 or later  
+**Open a command line at the project root directory.**  
+*Tip: Requires Java 17 or later.*  
 ```sh
 $ javac -encoding UTF-8 -d out RTRestOfYourLife/Main.java  
 $ cd out 
