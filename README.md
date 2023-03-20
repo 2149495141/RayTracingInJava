@@ -3,13 +3,13 @@
 ## Run
 **Open a command line at the project root directory.**  
 **Tip:** *Requires Java 17 or later.*  
-```sh
+```powershell
 $ javac -encoding UTF-8 -d out RTRestOfYourLife/Main.java  
 $ cd out 
 $ java RTRestOfYourLife.Main
 ```
 **Tip:** *You also need to copy the OBJFile folder to the out directory, otherwise the run will report an error.*  
-```shell
+```powershell
 $ cp OBJFile out/
 ```
 
