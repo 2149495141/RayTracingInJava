@@ -1,6 +1,6 @@
 package RTExperimentalIdeas;
 
-import static RTOneWeekend.RTUtil.random_double;
+import static RTExperimentalIdeas.RTUtil.random_double;
 
 public sealed class Vec3 permits Color, Point {
     public double x;
