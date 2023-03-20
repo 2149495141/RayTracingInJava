@@ -10,7 +10,7 @@ $ java RTRestOfYourLife.Main
 ```
 **Tip:** *You also need to copy the OBJFile folder to the out directory, otherwise the run will report an error.*  
 ```shell 
-$ copy OBJFile out/
+$ copy -r OBJFile out/
 ```
 
 ## Gallery
