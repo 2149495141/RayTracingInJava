@@ -19,6 +19,8 @@ $ copy -r OBJFile out/
 ![CornellBox](/Gallery/CornellBox.png)
 ![StanfordDragon](/Gallery/Dragon.png)
 ![Reimu](/Gallery/Reimu.png)
+![Volume](/Gallery/volume_dragon.png)
+![VolumeSubSurface](/Gallery/volume_subsurface.png)
 
 ## OBJFile references
 - bunny:https://graphics.stanford.edu/data/3Dscanrep/
