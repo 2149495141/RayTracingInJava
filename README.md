@@ -1,4 +1,4 @@
-# Ray-tracing-in-Java
+# Ray Tracing in Java
 
 ## Run
 **Open a command line at the project root directory.**  
