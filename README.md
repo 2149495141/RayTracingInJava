@@ -1,4 +1,5 @@
 # Ray Tracing in Java
+Java implementation of the "Ray Tracing in One Weekend" series and some extension ideas
 
 ## Run
 **Open a command line at the project root directory.**  
@@ -13,12 +14,19 @@ $ java RTExtended.Main
 $ copy -r OBJFile out/
 ```
 
-## Gallery
-![Specular](/Gallery/SpecularSphere.png)
+##Gallery
 ![NextWeek](/Gallery/NextWeek.png)
 ![CornellBox](/Gallery/CornellBox.png)
-![StanfordDragon](/Gallery/Dragon.png)
+
+## Extend content
+**supported Wavefront OBJ**
 ![Reimu](/Gallery/Reimu.png)
+
+**Specular Material**
+![Specular](/Gallery/SpecularSphere.png)
+![StanfordDragon](/Gallery/Dragon.png)
+
+**Supports arbitrarily shaped volume**
 ![Volume](/Gallery/volume_dragon.png)
 ![VolumeSubSurface](/Gallery/volume_subsurface.png)
 
