@@ -15,8 +15,9 @@ $ copy -r OBJFile out/
 ```
 
 ## Gallery
+![OneWeekend](/Gallery/OneWeekend.png)
 ![NextWeek](/Gallery/NextWeek.png)
-![CornellBox](/Gallery/CornellBox.png)
+![RestOfYourLife](/Gallery/RestOfYourLife.png)
 
 ## Extend content
 **supported Wavefront OBJ**
