@@ -4,9 +4,9 @@
 **Open a command line at the project root directory.**  
 **Tip:** *Requires Java 17 or later.*  
 ```shell 
-$ javac -encoding UTF-8 -d out RTExperimentalIdeas/Main.java  
+$ javac -encoding UTF-8 -d out RTExtended/Main.java  
 $ cd out 
-$ java RTExperimentalIdeas.Main
+$ java RTExtended.Main
 ```
 **Tip:** *You also need to copy the OBJFile folder to the out directory, otherwise the run will report an error.*  
 ```shell 
