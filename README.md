@@ -14,7 +14,7 @@ $ java RTExtended.Main
 $ copy -r OBJFile out/
 ```
 
-##Gallery
+## Gallery
 ![NextWeek](/Gallery/NextWeek.png)
 ![CornellBox](/Gallery/CornellBox.png)
 
