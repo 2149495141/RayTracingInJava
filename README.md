@@ -20,14 +20,14 @@ $ copy -r OBJFile out/
 ![RestOfYourLife](/Gallery/RestOfYourLife.png)
 
 ## Extend content
-**supported Wavefront OBJ**
+### *Wavefront OBJ*
 ![Reimu](/Gallery/Reimu.png)
 
-**Specular Material**
+### *Specular Material*
 ![Specular](/Gallery/SpecularSphere.png)
 ![StanfordDragon](/Gallery/Dragon.png)
 
-**Supports arbitrarily shaped volume**
+### *Supports arbitrarily shaped volume*
 ![Volume](/Gallery/volume_dragon.png)
 ![VolumeSubSurface](/Gallery/volume_subsurface.png)
 
