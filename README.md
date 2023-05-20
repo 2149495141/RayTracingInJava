@@ -29,7 +29,6 @@ $ copy -r OBJFile out/
 
 ### *Supports arbitrarily shaped volume*
 ![Volume](/Gallery/volume.png)
-![VolumeDragon](/Gallery/volume_dragon.png)
 ![VolumeSubSurface](/Gallery/volume_subsurface.png)
 
 ## OBJFile references
