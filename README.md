@@ -28,7 +28,8 @@ $ copy -r OBJFile out/
 ![StanfordDragon](/Gallery/Dragon.png)
 
 ### *Supports arbitrarily shaped volume*
-![Volume](/Gallery/volume_dragon.png)
+![Volume](/Gallery/volume.png)
+![VolumeDragon](/Gallery/volume_dragon.png)
 ![VolumeSubSurface](/Gallery/volume_subsurface.png)
 
 ## OBJFile references
