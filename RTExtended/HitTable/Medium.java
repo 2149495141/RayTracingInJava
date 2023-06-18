@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import static RTExtended.RTUtil.*;
 
 public class Medium implements HitTable{
-    record hit_intervals(ArrayList<Interval> intervals){}
     HitTable boundary;
     double neg_inv_density;
     Material phase_function;
@@ -26,46 +25,36 @@ public class Medium implements HitTable{
 
     @Override
     public boolean hit(Ray r, Interval t, HitRecord rec) {
-        hit_intervals hits = getHitIntervals(r, t);
-        if (hits.intervals.size() == 0) return false;
+        HitRecord point1 = new HitRecord(), point2 = new HitRecord();
+        if (!boundary.hit(r, new Interval(-infinity, infinity), point1))
+            return false;
 
-        int index = random_int(0, hits.intervals.size());
-        double point1 = hits.intervals.get(index).min();
-        double point2 = hits.intervals.get(index).max();
+        if (!boundary.hit(r, new Interval(point1.t+0.0001, infinity), point2))
+            return false;
+
+        if (point1.t < t.min()) point1.t = t.min();
+        if (point2.t > t.max()) point2.t = t.max();
+
+        if (point1.t >= point2.t)
+            return false;
+
+        if (point1.t < 0)
+            point1.t = 0;
 
         double ray_length = r.dir().length();
-        double distance_inside_boundary = (point2 - point1) * ray_length;
+        double distance_inside_boundary = (point2.t - point1.t) * ray_length;
         double hit_distance = neg_inv_density * Math.log(random_double());
+
         if (hit_distance >= distance_inside_boundary)
             return false;
 
-        rec.t = point1 + hit_distance / ray_length;
+        rec.t = point1.t + hit_distance / ray_length;
         rec.p = r.at(rec.t);
-        rec.normal = new Vec3(0,1,0);  // arbitrary
+        rec.normal = new Vec3(1,0,0);  // arbitrary
         rec.front_face = true;     // also arbitrary
         rec.mat = phase_function;
 
         return true;
-    }
-
-    hit_intervals getHitIntervals(Ray r, Interval t) {
-        ArrayList<Interval> intervals = new ArrayList<>();
-        HitRecord p1 = new HitRecord(), p2 = new HitRecord();
-        Interval tt = new Interval(-infinity,infinity);
-
-        while (boundary.hit(r, tt, p1)){
-            tt = new Interval(p1.t+1e-5, infinity);
-            if (boundary.hit(r, tt, p2)){
-                if (p1.t < t.min()) p1.t = t.min();
-                if (p1.t < 0) p1.t = 0;
-                if (p2.t > t.max()) p2.t = t.max();
-                if (p1.t >= p2.t) break;
-                tt = new Interval(p2.t+1e-5, infinity);
-                intervals.add(new Interval(p1.t, p2.t));
-
-            }else break;
-        }
-        return new hit_intervals(intervals);
     }
 
     @Override
