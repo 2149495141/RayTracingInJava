@@ -14,11 +14,10 @@ import static RTExtended.RTUtil.infinity;
 import static java.lang.Math.abs;
 
 public class Volume implements HitTable {
-    record volume_hit_info(double first_p, double distance){}
     HitTable boundary;
     double neg_inv_density;
     Material phase_function;
-    boolean enable_surface_mat;
+    record volume_hit_info(double first_p, double distance){}
 
     public Volume(HitTable b, double d, Color c){
         boundary = b;
