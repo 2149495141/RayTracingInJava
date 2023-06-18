@@ -26,24 +26,13 @@ public class Volume implements HitTable {
         phase_function = new Isotropic(c);
         enable_surface_mat = false;
     }
-    public Volume(HitTable b, double d, Color c, boolean enable_surface){
-        boundary = b;
-        neg_inv_density = -1/d;
-        phase_function = new Isotropic(c);
-        enable_surface_mat = enable_surface;
-    }
     public Volume(HitTable b, double d, Texture t){
         boundary = b;
         neg_inv_density = -1/d;
         phase_function = new Isotropic(t);
         enable_surface_mat = false;
     }
-    public Volume(HitTable b, double d, Texture t, boolean enable_surface){
-        boundary = b;
-        neg_inv_density = -1/d;
-        phase_function = new Isotropic(t);
-        enable_surface_mat = enable_surface;
-    }
+    
 
     @Override
     public boolean hit(Ray r, Interval t, HitRecord rec) {
