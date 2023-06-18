@@ -23,13 +23,11 @@ public class Volume implements HitTable {
         boundary = b;
         neg_inv_density = -1/d;
         phase_function = new Isotropic(c);
-        enable_surface_mat = false;
     }
     public Volume(HitTable b, double d, Texture t){
         boundary = b;
         neg_inv_density = -1/d;
         phase_function = new Isotropic(t);
-        enable_surface_mat = false;
     }
     
 
