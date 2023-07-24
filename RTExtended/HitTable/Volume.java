@@ -58,9 +58,9 @@ public class Volume implements HitTable {
         double first_point = 0;
         double distance = 0;
         while (boundary.hit(r, tt, hit_p1)) {
+            if (first_point == 0) first_point = hit_p1.t;
             if (hit_p1.t < t.min()) hit_p1.t = t.min();
             if (hit_p1.t < 0) hit_p1.t = 0;
-            if (first_point==0) first_point = hit_p1.t;
             tt = new Interval(hit_p1.t + 1e-5, infinity);
             if (boundary.hit(r, tt, hit_p2)) {
                 if (hit_p2.t > t.max()) hit_p2.t = t.max();
