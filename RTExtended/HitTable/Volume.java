@@ -55,18 +55,20 @@ public class Volume implements HitTable {
         HitRecord hit_p1 = new HitRecord(), hit_p2 = new HitRecord();
         Interval tt = new Interval(-infinity,infinity);
 
+        boolean is_first = true;
         double first_point = 0;
         double distance = 0;
         while (boundary.hit(r, tt, hit_p1)) {
-            if (first_point == 0) first_point = hit_p1.t;
             if (hit_p1.t < t.min()) hit_p1.t = t.min();
             if (hit_p1.t < 0) hit_p1.t = 0;
             tt = new Interval(hit_p1.t + 1e-5, infinity);
+            
+            if (is_first) { first_point = hit_p1.t; is_first = false; }
             if (boundary.hit(r, tt, hit_p2)) {
                 if (hit_p2.t > t.max()) hit_p2.t = t.max();
                 if (hit_p1.t >= hit_p2.t) break;
-                distance = hit_p2.t - hit_p1.t + distance;
                 tt = new Interval(hit_p2.t + 1e-5, infinity);
+                distance = hit_p2.t - hit_p1.t + distance;
             } else break;
         }
         return new volume_hit_info(first_point, distance);
