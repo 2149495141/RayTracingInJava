@@ -68,7 +68,7 @@ public class Volume implements HitTable {
                 if (hit_p2.t > t.max()) hit_p2.t = t.max();
                 if (hit_p1.t >= hit_p2.t) break;
                 tt = new Interval(hit_p2.t + 1e-5, infinity);
-                distance = hit_p2.t - hit_p1.t + distance;
+                distance += hit_p2.t - hit_p1.t;
             } else break;
         }
         return new volume_hit_info(first_point, distance);
