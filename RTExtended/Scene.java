@@ -10,19 +10,10 @@ import static RTExtended.RTUtil.random_double;
 public class Scene {
     Camera camera;
     HitTable world;
-    int image_width;
-    int image_height;
 
     Scene(Camera camera, HitTable world){
         this.camera = camera;
         this.world = world;
-    }
-
-    Scene(Camera camera, HitTable world, int width, int height){
-        this.camera = camera;
-        this.world = world;
-        this.image_width = width;
-        this.image_height = height;
     }
 
     public static Scene initScene(){
@@ -32,8 +23,7 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 90,
-                0.02, dist_to_focus, 16/9.0);
+        Camera camera = new Camera(lookFrom, lookAt, vup, 90, 0.02, dist_to_focus, 16/9.0);
 
         HitTableList world = new HitTableList();
 
@@ -50,6 +40,7 @@ public class Scene {
         world.add(ground);
         world.add(SphereC);
         world.add(SphereR);
+        world.add(SphereL);
 
         return new Scene(camera, world);
     }
@@ -61,8 +52,7 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 60,
-                0.02, dist_to_focus, 16/9.0);
+        Camera camera = new Camera(lookFrom, lookAt, vup, 60, 0.02, dist_to_focus, 16/9.0);
 
         HitTableList world = new HitTableList();
 
@@ -75,7 +65,7 @@ public class Scene {
 
         world.add(ground);
         world.add(box);
-        world.add(new Volume(box, 4, new Color(0.9,0.3,0.3)));
+        world.add(new Volume(box, 4, new Color(0), new Color(0.9,0.3,0.3)));
         world.add(SphereL);
 
         return new Scene(camera, world);
@@ -88,8 +78,7 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 20,
-                0.05, dist_to_focus, 16/9.0);
+        Camera camera = new Camera(lookFrom, lookAt, vup, 20, 0.05, dist_to_focus, 16/9.0);
 
 
         HitTableList world = new HitTableList();
@@ -125,8 +114,7 @@ public class Scene {
             }
         }
         Material material1 = new Dielectric(new Color(1),1.4);
-        //world.add(new Sphere(new Point(0, 1, 0), 1.0, material1));
-        world.add(new Volume(new Sphere(new Point(0, 1, 0), 0.8, material1), 3, new Color(0.9,0.3,0.3)));
+        world.add(new Sphere(new Point(0, 1, 0), 1.0, material1));
 
         Material material2 = new Specular(new Color(Vec3.random()), 1.4);
         world.add(new Sphere(new Point(-4, 1, 0), 1.0, material2));
@@ -147,8 +135,7 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 40,
-                0.02, dist_to_focus, 16/9.0);
+        Camera camera = new Camera(lookFrom, lookAt, vup, 40, 0.02, dist_to_focus, 16/9.0);
 
         HitTableList world = new HitTableList();
 
@@ -169,8 +156,7 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 30,
-                0.02, dist_to_focus, 16/9.0);
+        Camera camera = new Camera(lookFrom, lookAt, vup, 30, 0.02, dist_to_focus, 16/9.0);
 
 
         HitTableList world = new HitTableList();
@@ -195,12 +181,9 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 30,
-                0.02, dist_to_focus, 16/9.0);
-
+        Camera camera = new Camera(lookFrom, lookAt, vup, 30, 0.02, dist_to_focus, 16/9.0);
 
         HitTableList world = new HitTableList();
-        Texture pertext = new NoiseTexture(new Color(0.4, 0.8, 0.6),2);
         Mesh3DModel dragon = OBJ.loadToMeshModel("OBJFile/dragon_low.obj", new Dielectric(new Color(1), 1.5));
         dragon.scale(5);
         dragon.translate(0, -0.5,0);
@@ -208,10 +191,8 @@ public class Scene {
         Texture checker = new CheckerTexture(0.4, new Color(0.2,0.3,0.1), new Color(0.9,0.9,0.9));
         Sphere ground = new Sphere(new Point(0, -100.5, -1), 100, new Lambertian(checker));
 
-        BVH dragon_bvh = new BVH(dragon.TrianglesData);
         world.add(new Sphere(new Point(502, 50, 100), 100.0, new DiffuseLight(new Color(50))));
-        //world.add(dragon_bvh);
-        world.add(new Volume(dragon_bvh, 32, new Color(0.9,0.3,0.3), true));
+        world.add(new Volume(new BVH(dragon.TrianglesData), 32, new Color(0.8, 0.5, 0.2), new Color(0.2,0.4,0.8)));
         world.add(ground);
 
         return new Scene(camera, world);
@@ -224,8 +205,7 @@ public class Scene {
         Vec3 lookLength = lookFrom.minus(lookAt);
         double dist_to_focus = lookLength.length();
 
-        Camera camera = new Camera(lookFrom, lookAt, vup, 30,
-                0.02, dist_to_focus, 16/9.0);
+        Camera camera = new Camera(lookFrom, lookAt, vup, 30, 0.02, dist_to_focus, 16/9.0);
 
         HitTableList world = new HitTableList();
 
@@ -257,12 +237,6 @@ public class Scene {
         reimu.scale(0.1);
         reimu.rotate(-30, 1);
         reimu.translate(-0.5, -0.5, 0);
-
-//        Texture reimu_v2_texture = new ImageTexture("OBJFile/reimu_v2/v2reimu_low_Material_u1_v1_baseColor.png");
-//        Mesh3DModel reimu2 = OBJ.loadToMeshModel("OBJFile/reimu_v2/reimuV2.obj", new Lambertian(reimu_v2_texture));
-//        reimu2.scale(0.12);
-//        reimu2.rotate(-40,1);
-//        reimu2.translate(-1.7, -0.5, 0.8);
 
         Sphere light = new Sphere(new Point(0, 1000, -500), 100.0, new DiffuseLight(new Color(30)));
         Sphere ground = new Sphere(new Point(0, -1000.5, -1), 1000, new Lambertian(new Color(0.8,0.8,0.8)));
