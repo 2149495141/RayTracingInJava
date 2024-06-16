@@ -29,6 +29,7 @@ $ copy -r OBJFile out/
 
 ### *Supports arbitrarily shaped volume*
 ![PrincipledVolume](/Gallery/principled_volume.png)
+*Blender reference:*
 ![BlenderReference](/Gallery/blender_reference.png)
 
 ## OBJFile references
