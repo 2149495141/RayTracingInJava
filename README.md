@@ -28,8 +28,8 @@ $ copy -r OBJFile out/
 ![StanfordDragon](/Gallery/Dragon.png)
 
 ### *Supports arbitrarily shaped volume*
-![Volume](/Gallery/volume.png)
-![VolumeSubSurface](/Gallery/volume_subsurface.png)
+![PrincipledVolume](/Gallery/principled_volume.png)
+![BlenderReference](/Gallery/blender_reference.png)
 
 ## OBJFile references
 - bunny:https://graphics.stanford.edu/data/3Dscanrep/
