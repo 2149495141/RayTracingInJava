@@ -14,15 +14,13 @@ import static RTExtended.RTUtil.infinity;
 public class Volume implements HitTable {
     HitTable boundary;
     double neg_inv_density;
-    Color sigma_a, sigma_s, sigma_t;
-    record volumeHitInfo(double first_p, double distance, Vec3 tr){}
+    Color c;
+    record volumeHitInfo(double first_p, double distance){}
 
-    public Volume(HitTable b, double d, Color a, Color s){
+    public Volume(HitTable b, double d, Color color){
         boundary = b;
         neg_inv_density = -1/d;
-        sigma_a = a;
-        sigma_s = s;
-        sigma_t = sigma_a.add(sigma_s);
+        c = color;
     }
     
 
@@ -40,7 +38,7 @@ public class Volume implements HitTable {
         rec.p = r.at(rec.t);
         rec.normal = new Vec3(0);
         rec.front_face = true;
-        rec.mat = new Isotropic(sigma_a.add(sigma_s.multiply(volume_info.tr)));
+        rec.mat = new Isotropic(c);
 
         return true;
     }
@@ -49,7 +47,6 @@ public class Volume implements HitTable {
         boolean is_first = true;
         double first_point = 0;
         double distance = 0;
-        Vec3 tr = new Vec3(1);
 
         HitRecord hit_p1 = new HitRecord(), hit_p2 = new HitRecord();
         Interval nxte_t = new Interval(-infinity, infinity);
@@ -67,12 +64,11 @@ public class Volume implements HitTable {
                 if (hit_p1.t >= hit_p2.t)   break;
 
                 distance += (hit_p2.t - hit_p1.t);
-                tr.multiply_Equal(Vec3.Exp(sigma_t.negative().multiply(distance)));
                 nxte_t = new Interval(hit_p2.t + 1e-5, infinity);
             }
             else break;
         }
-        return new volumeHitInfo(first_point, distance, tr);
+        return new volumeHitInfo(first_point, distance);
     }
 
     @Override
