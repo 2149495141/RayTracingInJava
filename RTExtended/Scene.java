@@ -192,7 +192,7 @@ public class Scene {
         Sphere ground = new Sphere(new Point(0, -100.5, -1), 100, new Lambertian(checker));
 
         world.add(new Sphere(new Point(502, 50, 100), 100.0, new DiffuseLight(new Color(50))));
-        world.add(new Volume(new BVH(dragon.TrianglesData), 32, new Color(0.8, 0.5, 0.2), new Color(0.2,0.4,0.8)));
+        world.add(new Volume(new BVH(dragon.TrianglesData), 32, new Color(0.8, 0.7, 0.8)));
         world.add(ground);
 
         return new Scene(camera, world);
